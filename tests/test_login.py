@@ -1,5 +1,6 @@
 from pages.login_page import LoginPage
 from playwright.sync_api import expect
+import os
 
 def test_login(page):
     page.goto("https://eventhub.rahulshettyacademy.com/login")
@@ -44,4 +45,11 @@ def test_invalid_login_using_fixture(login_page):
 
     expect(login_page.error_message).to_be_visible()
 
-    
+
+def test_valid_login_using_env_variables(login_page):
+    email = os.getenv("EVENTHUB_EMAIL")
+    password = os.getenv("EVENTHUB_PASSWORD")
+
+    login_page.login(email, password)
+
+    expect(login_page.valid_login_message).to_be_visible()
