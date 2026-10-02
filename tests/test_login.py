@@ -30,4 +30,18 @@ def test_valid_login(page):
 
     message = login_page.valid_login_message.inner_text()
     print(f"Post-login message: {message}")
+
+
+
+def test_valid_login_using_fixture(login_page):
+    login_page.login("automationskeptic@gmail.com", "Admin@123")
+
+    expect(login_page.valid_login_message).to_be_visible()    
+
+
+def test_invalid_login_using_fixture(login_page):
+    login_page.login("test@example.com", "password123")
+
+    expect(login_page.error_message).to_be_visible()
+
     
