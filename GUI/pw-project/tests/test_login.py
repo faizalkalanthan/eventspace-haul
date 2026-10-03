@@ -1,4 +1,4 @@
-from conftest import authenticated_page
+
 from pages.login_page import LoginPage
 from playwright.sync_api import Page
 from playwright.sync_api import expect
@@ -26,7 +26,7 @@ def test_invalid_login(page: Page):
 def test_valid_login(page: Page):
     page.goto("https://eventhub.rahulshettyacademy.com/login")
 
-    login_page = LoginPage(page)
+    login_page = LoginPage(page) #creates an instance of your LoginPage class and connects it to the current Playwright page.
 
     login_page.login("automationskeptic@gmail.com", "Admin@123")
 
@@ -61,9 +61,9 @@ def test_valid_login_using_env_variables(login_page):
 
 
 
-def test_save_auth_state(authenticated_page):
+def test_save_auth_state(save_auth_state):
     expect(
-        authenticated_page.get_by_role("button", name="Logout")
+        save_auth_state.get_by_role("button", name="Logout")
     ).to_be_visible()
 
 
