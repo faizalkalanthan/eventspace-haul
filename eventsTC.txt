@@ -1,0 +1,7 @@
+
+| **Test ID**  | **Test Case Name (def test\_...)**                | **Scenario**                 | **Preconditions** | **Main Steps**                  | **Expected Result**               | **Priority** | **Modifies Data?** |
+| ------------ | ------------------------------------------------- | ---------------------------- | ----------------- | ------------------------------- | --------------------------------- | ------------ | ------------------ |
+| **TC_P0_01** | `test_search_events`                              | Search Events                | Auth, `/events`   | Type keyword                    | Matching events display           | P0           | No                 |
+| **TC_P0_02** | `test_open_event_details`                         | Open Event Details           | Auth, `/events`   | Click Book Now                  | Details page opens                | P0           | No                 |
+| **TC_P0_03** | `test_complete_booking_and_verify_in_my_bookings` | Valid Booking & Verification | Auth, event page  | Submit form & check `/bookings` | Booking appears under My Bookings | P0           | **Yes**            |
+| **TC_P0_04** | `test_required_field_validation`                  | Required Field Validation    | Auth, event page  | Submit blank form               | Validation errors shown           | P0           | No                 |

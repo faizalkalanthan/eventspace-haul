@@ -23,7 +23,7 @@ def save_auth_state(page):
     page.get_by_role("button", name="Logout").wait_for()
 
     page.context.storage_state(
-        path="playwright/.auth/user.json"
+        path="../playwright/.auth/user.json"
     )
 
     return page
@@ -32,7 +32,7 @@ def save_auth_state(page):
 @pytest.fixture
 def authenticated_page(browser):
     context = browser.new_context(
-        storage_state="playwright/.auth/user.json"
+        storage_state="../playwright/.auth/user.json"
     )
 
     page = context.new_page()
